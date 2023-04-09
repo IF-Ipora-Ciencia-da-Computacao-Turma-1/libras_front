@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View} from 'react-native';
-
+import { Text, View} from 'react-native';
+import {css} from './src/css/css'
 
 //importando os componentes
 import PaginaUm from './src/components';
@@ -8,17 +8,9 @@ import PaginaUm from './src/components';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={css.container2}>
        <PaginaUm/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
