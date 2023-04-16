@@ -1,16 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View} from 'react-native';
-import {css} from './src/css/css'
+import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
 
-//importando os componentes
-import PaginaUm from './src/components';
+import Home from './src/components/Home'
+import PaginaDois from './src/components/Pagina2';
 
+import Router from "./src/rotas/router"
 
 export default function App() {
   return (
-    <View style={css.container2}>
-       <PaginaUm/>
-    </View>
+    <Router/>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
