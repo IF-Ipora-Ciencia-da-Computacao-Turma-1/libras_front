@@ -21,10 +21,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.murillocas.libras_front"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },"plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsImpl": "mapbox",
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoibXVyaWxsb2Nhc3RybyIsImEiOiJjbGhkZWUwYW0wbWFrM2JweHUxOTlwZWFrIn0.eb7N0tFsxnFBEXKHlDUkCA"
+        }
+      ]
+    ]
   }
 }
