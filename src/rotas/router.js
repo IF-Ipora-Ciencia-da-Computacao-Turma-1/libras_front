@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../components/Home'
 import PaginaDois from '../components/Pagina2'
 
+
 const Stack = createNativeStackNavigator();
 
 export default function Router() {

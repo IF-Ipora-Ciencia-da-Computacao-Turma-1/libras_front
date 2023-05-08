@@ -20,10 +20,6 @@ export default function Home({navigation}){
              onPress={() => navigation.navigate("PaginaDois")}
              title="va para pagina 2"/>
 
-            <Button
-            style = {css.botao}
-             onPress={() => navigation.navigate("Axios")}
-             title="va para Axios"/>
 
             <Image source={require('../imgs/logoIF.png')}
             style={{ width: 200, height: 200 }}
