@@ -14,8 +14,8 @@ export default function lista({props}){
         <View>
             <FlatList 
                 data={props}
-                keyExtractor={item => item.cep}
-                renderItem = {({item}) => <Item content={item.logradouro} />}
+                keyExtractor={item => item.id}
+                renderItem = {({item}) => <Item content={item.nome} />}
             />
         </View>
         

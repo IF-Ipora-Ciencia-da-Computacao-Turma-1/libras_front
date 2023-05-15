@@ -14,7 +14,7 @@ export default function App({navigator}) {
         //console.log("PAssei aqui")
 
         
-        axios.get("https://viacep.com.br/ws/GO/Goiania/jas/json")
+        axios.get("http://127.0.0.1:8000/api/cidade/index")
         .then((response) => {
             //console.log(response.data)
             setAdvice(response.data)
@@ -28,8 +28,8 @@ export default function App({navigator}) {
   
     return (
         <View style={styles.container}>
-            <Text style={styles.advice}>{advice.cep}</Text>
-            <Text style={styles.advice}>{advice.logradouro}</Text>
+            <Text style={styles.advice}>{advice.id}</Text>
+            <Text style={styles.advice}>{advice.nome}</Text>
            
             <Button title="Get Advice" 
                 onPress={getAdvice} color="green" />
