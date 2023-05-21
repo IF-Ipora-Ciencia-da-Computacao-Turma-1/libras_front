@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
-import axios from "axios";
+//import axios from "axios";
   
 import Lista from "./lista";
+import api from '../api/api';
+
 
 export default function App({navigator}) {
 
@@ -14,7 +16,7 @@ export default function App({navigator}) {
         //console.log("PAssei aqui")
 
         
-        axios.get("http://127.0.0.1:8000/api/cidade/index")
+        api.get('cidade/index')
         .then((response) => {
             //console.log(response.data)
             setAdvice(response.data)

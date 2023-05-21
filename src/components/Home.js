@@ -19,6 +19,10 @@ export default function Home({navigation}){
             style = {css.botao}
              onPress={() => navigation.navigate("PaginaDois")}
              title="va para pagina 2"/>
+             <Button
+            style = {css.botao}
+             onPress={() => navigation.navigate("HomeScreen")}
+             title="HomeScreen"/>
 
 
             <Image source={require('../imgs/logoIF.png')}

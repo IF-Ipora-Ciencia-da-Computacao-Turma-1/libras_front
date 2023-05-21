@@ -5,7 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from '../components/Home'
 import PaginaDois from '../components/Pagina2'
-
+import HomeScreen from '../components/HomeScreen';
+import ProfileScreen from '../components/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,8 @@ export default function Router() {
     }}>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="PaginaDois" component={PaginaDois} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+          <Stack.Screen name="Profile" component={ProfileScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
     );
