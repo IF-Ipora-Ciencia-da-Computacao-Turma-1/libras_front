@@ -39,9 +39,13 @@ export default function HomeScreen({ navigation }) {
     //   />
     // </View>
     <View style={styles.container}>
-      <Text style={styles.title}>Cadastrar nova cidade</Text>
-        <View style={styles.inputContainer}> 
-        <Controller
+
+      <View style={styles.inputCard}>
+        <Text style={styles.title}>Cadastrar nova cidade</Text>
+          <View style={styles.inputContainer}> 
+
+          <View style={styles.inputs}> 
+            <Controller
               control={control}
               name="estado"
               render={({field:{onChange,onBlur,value}})=>(
@@ -55,7 +59,8 @@ export default function HomeScreen({ navigation }) {
                 />
                 )}
             />
-          <Controller
+
+            <Controller
               control={control}
               name="nome"
               render={({field:{onChange,onBlur,value}})=>(
@@ -69,7 +74,8 @@ export default function HomeScreen({ navigation }) {
                 />
                 )}
             />
-             <Controller
+
+            <Controller
               control={control}
               name="sinal"
               render={({field:{onChange,onBlur,value}})=>(
@@ -83,22 +89,32 @@ export default function HomeScreen({ navigation }) {
                 />
                 )}
             />
+          </View>
           <TouchableOpacity  style={styles.button}
             onPress={handleSubmit(handleCreate)}
             >
           {/* <TouchableOpacity style={styles.button} onPress={handleCreate()}>  */}
-            <Text style={styles.buttonText}>Salvar</Text> 
+            <Text style={styles.buttonText}>Salvar dados da cidade</Text> 
           </TouchableOpacity> 
-          <Button
-            title="Visualizar"
-            onPress={() => navigation.navigate('Profile')}
-          />
-          <Button
-            title="home"
-            onPress={() => navigation.navigate('Home')}
-          />
-        </View>
-      <StatusBar style="light" />
+
+          <View style={styles.navButtons}>
+           
+            <Button 
+              title="home"
+              onPress={() => navigation.navigate('Home')}
+            />
+
+             <Button style={styles.navButton}
+             
+              title="Visualizar Cidades"
+              onPress={() => navigation.navigate('Profile')}
+            />
+          </View>
+          
+          </View>
+        <StatusBar style="light" />
+      </View>
+     
 
     </View>
     );
@@ -106,40 +122,100 @@ export default function HomeScreen({ navigation }) {
 
   
 const styles= StyleSheet.create({
-  container: {
+container: {
+    /*
   flex: 1,
   backgroundColor: '#D93600',
+  alignItems: 'center',*/
+  width: '100%',
+  height: '100%',
+  backgroundColor: '#15B6D6',
+  display: 'flex',
   alignItems: 'center',
+  justifyContent: 'center',
+  bottom: '0',
+  boxSizing: 'border-box',
+
 },
+
+inputCard:{
+
+  backgroundColor: '#fff',
+
+  width: '90%',
+  maxWidth: '100%',
+  maxHeight: '90%',
+  borderRadius: '10px',
+  display: 'flex',  
+  alignItems: 'center',
+  justifyContent: 'center',
+  boxSizing: 'border-box',
+  padding: '10px',
+  marginTop: '30px',
+
+
+},
+
 title: {
-  color: '#fff',
-  fontSize: 20,
+  color: '#3E3E3E',
+  fontSize: '3rem',
+  textAlign: 'center',
   fontWeight: 'bold',
-  marginTop: 50,
+  marginTop: '10px',
+  marginBottom: '10px',
+  
 },
+
+
 inputContainer: {
   flex: 1,
-  marginTop: 30,
-  width: '90%',
+  marginTop: 20,
+  marginBottom: 20,
+  width: '95%',
   padding: 20,
   borderTopLeftRadius: 10,
   borderTopRightRadius: 10,
   alignItems: 'stretch',
   backgroundColor: '#fff'
 },
+
 input: {
-  marginTop: 10,
-  height: 60,
+  marginTop: 15,
+  height: '3rem',
   backgroundColor: '#fff',
-  borderRadius: 10,
-  paddingHorizontal: 24,
+  borderRadius: 7,
+  paddingHorizontal: '1rem',
   fontSize: 16,
-  alignItems: 'stretch'
+  alignItems: 'stretch',
+  borderWidth: 1,
+  borderColor: '#15B6D6',
 },
+
+inputs: {
+  display: 'flex',
+  justifyContent: 'space-evenly ',
+  marginBottom: '1rem',
+},
+
+navButtons:{
+  display: 'flex',
+  flexDirection: 'row',
+  marginTop: '1rem',
+  marginBottom: '1rem',
+  justifyContent: 'space-between',
+
+},
+
+navButton:{
+  backgroundColor: 'red',
+},
+
+
+
 button: {
   marginTop: 10,
   height: 60,
-  backgroundColor: 'blue',
+  backgroundColor: '#FFC831',
   borderRadius: 10,
   paddingHorizontal: 24,
   fontSize: 16,
@@ -152,5 +228,7 @@ button: {
 buttonText: {
   color: '#fff',
   fontWeight: 'bold',
-}
+  fontSize: 20,
+},
+
 });

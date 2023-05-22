@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity, Alert, Button,Image } from 'react-native';
 import { React, useEffect, useState } from 'react';
 import api from '../api/api';
 
@@ -28,22 +28,43 @@ export default function ProfileScreen({ navigation }) {
   }, [])
 
   const Item = ({item}) => (
-    <View>
+    <View style = {styles.cardItem}>
       <TouchableOpacity
-        onPress={() => (handleDelete(item))}>
-        <Text style={styles.input}>Cidade: {item.nome}</Text>
+        onPress={() => (/*handleDelete(item) //Função deletava os objetos salvos*/()=>{console.log('Clicado')})}>
+
+        <View style={styles.cardItemContent}>
+          <View  style={styles.Img}>
+              <Image 
+              style = {styles.Imagem}
+                source={{uri:`${item.sinal}`}}/>
+             
+          </View>
+            
+          <View style={styles.Conteudo} >
+            <Text style={styles.input}>Cidade: {item.nome}</Text>
+            <Text style={styles.input}>Estado: {item.cidade}</Text>
+          </View>
+          
+        </View>
+        
+
+        
+        
       </TouchableOpacity>
-      <Text style={styles.input}>Estado: {item.cidade}</Text>
-      <Text style={styles.input}>Sinal: {item.sinal}</Text>
+      
     </View>
   );
 
   return (
     <View style={styles.container}>
-      
+     
+             
       <SafeAreaView style={styles.container}>
-        
+      <Button        
+             title="Home"/>
+
         <FlatList
+          style={styles.List}
           data={data}
           renderItem={({item}) => <Item item={item} />}
           keyExtractor={item => item.id}
@@ -57,9 +78,15 @@ export default function ProfileScreen({ navigation }) {
   
 const styles= StyleSheet.create({
   container: {
-  flex: 1,
-  backgroundColor: '#D93600',
-  alignItems: 'center',
+    width: '100%',
+    maxWidth: '100%',
+    height: '100%',
+    backgroundColor: '#15B6D6',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    bottom: '0',
+    boxSizing: 'border-box',
 },
 title: {
   color: '#fff',
@@ -67,15 +94,32 @@ title: {
   fontWeight: 'bold',
   marginTop: 50,
 },
-inputContainer: {
-  flex: 1,
-  marginTop: 30,
-  width: '90%',
-  padding: 20,
-  borderTopLeftRadius: 10,
-  borderTopRightRadius: 10,
-  alignItems: 'stretch',
-  backgroundColor: '#fff'
+
+cardItem:{
+  width: '95%', 
+
+  borderRadius: '10px',
+  borderColor: '#15B6D6',
+  borderWidth: 1,
+  padding: '10px',
+  marginTop: '10px',
+  marginBottom: '10px',
+  margin: 'auto',
+  boxSizing: 'border-box',
+},
+
+cardItemContent:{
+  display: 'flex',
+  flexDirection: 'row',
+  padding: '10px',  
+  
+},
+
+List:{
+    backgroundColor: '#fff',
+    display: 'flex',
+    maxWidth: '100%',
+    
 },
 input: {
   marginTop: 10,
@@ -85,6 +129,29 @@ input: {
   paddingHorizontal: 24,
   fontSize: 16,
   alignItems: 'stretch'
+},
+
+Img:{
+  borderRadius: '10px',
+  borderColor: '#15B6D6',
+  borderWidth: 1,
+  width: '300px',
+
+
+  maxWidth: "30%",
+  
+  boxSizing: 'border-box',
+},
+
+Imagem:{
+  height: '100%',
+  width: '100%',
+},
+
+Conteudo:{
+  height: '100%',
+  flex:1,
+  padding: '10px',
 },
 button: {
   marginTop: 10,

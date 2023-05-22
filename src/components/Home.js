@@ -15,10 +15,8 @@ export default function Home({navigation}){
                 title="Learn More"
                 color="#841584"
             />
-            <Button
-            style = {css.botao}
-             onPress={() => navigation.navigate("PaginaDois")}
-             title="va para pagina 2"/>
+       
+
              <Button
             style = {css.botao}
              onPress={() => navigation.navigate("HomeScreen")}
