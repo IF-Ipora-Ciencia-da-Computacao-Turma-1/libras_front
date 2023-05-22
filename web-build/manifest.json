@@ -1,0 +1,9 @@
+{
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "lang": "en",
+  "name": "libras_front",
+  "short_name": "libras_front",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait"
+}
