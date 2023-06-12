@@ -23,6 +23,11 @@ export default function Home({navigation}){
              title="HomeScreen"/>
 
 
+            <Button
+                style = {css.botao}
+                onPress={() => navigation.navigate("MapView")}
+                title="Mapa"/>
+
             <Image source={require('../imgs/logoIF.png')}
             style={{ width: 200, height: 200 }}
             resizeMode="contain"

@@ -7,6 +7,7 @@ import Home from '../components/Home'
 import PaginaDois from '../components/Pagina2'
 import HomeScreen from '../components/HomeScreen';
 import ProfileScreen from '../components/ProfileScreen';
+import MapView from '../components/MapView';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function Router() {
           <Stack.Screen name="PaginaDois" component={PaginaDois} />
           <Stack.Screen name="HomeScreen" component={HomeScreen}/>
           <Stack.Screen name="Profile" component={ProfileScreen}/>
+          <Stack.Screen name="MapView" component={MapView}/>
         </Stack.Navigator>
       </NavigationContainer>
     );

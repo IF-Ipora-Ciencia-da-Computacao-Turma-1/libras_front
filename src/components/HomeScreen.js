@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, Button } fr
 import { React, useEffect, useState } from 'react';
 import {useForm, Controller} from 'react-hook-form';
 import api from '../api/api';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen({ navigation }) {
 
@@ -38,85 +39,89 @@ export default function HomeScreen({ navigation }) {
     //     onPress={() => navigation.navigate('Profile')}
     //   />
     // </View>
-    <View style={styles.container}>
+    <SafeAreaView>
+      <StatusBar backgroundColor="green"></StatusBar>
+      
+      <View style={styles.container}>
+       
+        <View style={styles.inputCard}>
+          <Text style={styles.title}>Cadastrar nova cidade</Text>
+            <View style={styles.inputContainer}> 
 
-      <View style={styles.inputCard}>
-        <Text style={styles.title}>Cadastrar nova cidade</Text>
-          <View style={styles.inputContainer}> 
+            <View style={styles.inputs}> 
+              <Controller
+                control={control}
+                name="estado"
+                render={({field:{onChange,onBlur,value}})=>(
+                  <TextInput
+                  placeholder="Informe o estado"
+                  onChangeText={onChange}
+                  onBlur= {onBlur}
+                  value={value}
+                  style={[styles.input]}
+                  
+                  />
+                  )}
+              />
 
-          <View style={styles.inputs}> 
-            <Controller
-              control={control}
-              name="estado"
-              render={({field:{onChange,onBlur,value}})=>(
-                <TextInput
-                placeholder="Informe o estado"
-                onChangeText={onChange}
-                onBlur= {onBlur}
-                value={value}
-                style={[styles.input]}
-                
-                />
-                )}
-            />
+              <Controller
+                control={control}
+                name="nome"
+                render={({field:{onChange,onBlur,value}})=>(
+                  <TextInput
+                  placeholder="Informe a cidade"
+                  onChangeText={onChange}
+                  onBlur= {onBlur}
+                  value={value}
+                  style={[styles.input]}
+                  
+                  />
+                  )}
+              />
 
-            <Controller
-              control={control}
-              name="nome"
-              render={({field:{onChange,onBlur,value}})=>(
-                <TextInput
-                placeholder="Informe a cidade"
-                onChangeText={onChange}
-                onBlur= {onBlur}
-                value={value}
-                style={[styles.input]}
-                
-                />
-                )}
-            />
+              <Controller
+                control={control}
+                name="sinal"
+                render={({field:{onChange,onBlur,value}})=>(
+                  <TextInput
+                  placeholder="Informe o sinal"
+                  onChangeText={onChange}
+                  onBlur= {onBlur}
+                  value={value}
+                  style={[styles.input]}
+                  
+                  />
+                  )}
+              />
+            </View>
+            <TouchableOpacity  style={styles.button}
+              onPress={handleSubmit(handleCreate)}
+              >
+            {/* <TouchableOpacity style={styles.button} onPress={handleCreate()}>  */}
+              <Text style={styles.buttonText}>Salvar dados da cidade</Text> 
+            </TouchableOpacity> 
 
-            <Controller
-              control={control}
-              name="sinal"
-              render={({field:{onChange,onBlur,value}})=>(
-                <TextInput
-                placeholder="Informe o sinal"
-                onChangeText={onChange}
-                onBlur= {onBlur}
-                value={value}
-                style={[styles.input]}
-                
-                />
-                )}
-            />
-          </View>
-          <TouchableOpacity  style={styles.button}
-            onPress={handleSubmit(handleCreate)}
-            >
-          {/* <TouchableOpacity style={styles.button} onPress={handleCreate()}>  */}
-            <Text style={styles.buttonText}>Salvar dados da cidade</Text> 
-          </TouchableOpacity> 
+            <View style={styles.navButtons}>
+            
+              <Button 
+                title="home"
+                onPress={() => navigation.navigate('Home')}
+              />
 
-          <View style={styles.navButtons}>
-           
-            <Button 
-              title="home"
-              onPress={() => navigation.navigate('Home')}
-            />
+              <Button style={styles.navButton}
+              
+                title="Visualizar Cidades"
+                onPress={() => navigation.navigate('Profile')}
+              />
+            </View>
+            
+            </View>
+          <StatusBar style="light" />
+        </View>
+      
 
-             <Button style={styles.navButton}
-             
-              title="Visualizar Cidades"
-              onPress={() => navigation.navigate('Profile')}
-            />
-          </View>
-          
-          </View>
-        <StatusBar style="light" />
       </View>
-     
-
-    </View>
+    </SafeAreaView>
     );
   }
 
@@ -133,7 +138,7 @@ container: {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  bottom: '0',
+  bottom: 0,
   boxSizing: 'border-box',
 
 },
@@ -143,26 +148,27 @@ inputCard:{
   backgroundColor: '#fff',
 
   width: '90%',
+  height: 500,
   maxWidth: '100%',
   maxHeight: '90%',
-  borderRadius: '10px',
+  borderRadius: 10,
   display: 'flex',  
   alignItems: 'center',
   justifyContent: 'center',
   boxSizing: 'border-box',
-  padding: '10px',
-  marginTop: '30px',
+  padding: 10,
+  marginTop: 30,
 
 
 },
 
 title: {
   color: '#3E3E3E',
-  fontSize: '3rem',
+  fontSize: 30,
   textAlign: 'center',
   fontWeight: 'bold',
-  marginTop: '10px',
-  marginBottom: '10px',
+  marginTop: 10,
+  marginBottom: 10,
   
 },
 
@@ -172,6 +178,7 @@ inputContainer: {
   marginTop: 20,
   marginBottom: 20,
   width: '95%',
+  height: '70%',
   padding: 20,
   borderTopLeftRadius: 10,
   borderTopRightRadius: 10,
@@ -181,10 +188,10 @@ inputContainer: {
 
 input: {
   marginTop: 15,
-  height: '3rem',
+  height: 50,
   backgroundColor: '#fff',
   borderRadius: 7,
-  paddingHorizontal: '1rem',
+  paddingHorizontal: 10,
   fontSize: 16,
   alignItems: 'stretch',
   borderWidth: 1,
@@ -193,15 +200,15 @@ input: {
 
 inputs: {
   display: 'flex',
-  justifyContent: 'space-evenly ',
-  marginBottom: '1rem',
+  justifyContent: 'space-evenly',
+  marginBottom: 10,
 },
 
 navButtons:{
   display: 'flex',
   flexDirection: 'row',
-  marginTop: '1rem',
-  marginBottom: '1rem',
+  marginTop: 10,
+  marginBottom: 10,
   justifyContent: 'space-between',
 
 },

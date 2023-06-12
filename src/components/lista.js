@@ -1,4 +1,5 @@
 import React from "react";
+import { StatusBar } from 'expo-status-bar';
 import {SafeAreaView, StyleSheet, View,FlatList, Text } from "react-native";
 
 const Item = ({content}) => (
@@ -11,13 +12,17 @@ export default function lista({props}){
     console.log(props)
 
     return(
-        <View>
-            <FlatList 
-                data={props}
-                keyExtractor={item => item.id}
-                renderItem = {({item}) => <Item content={item.nome} />}
-            />
-        </View>
+        <SafeAreaView>
+            <StatusBar backgroundColor="red"></StatusBar>
+            <View>
+                <FlatList 
+                    data={props}
+                    keyExtractor={item => item.id}
+                    renderItem = {({item}) => <Item content={item.nome} />}
+                />
+            </View>
+        </SafeAreaView>
+       
         
     );
 }

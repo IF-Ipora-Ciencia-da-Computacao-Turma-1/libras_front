@@ -29,7 +29,7 @@ export default function ProfileScreen({ navigation }) {
 
   const Item = ({item}) => (
     <View style = {styles.cardItem}>
-      <TouchableOpacity
+      <TouchableOpacity style = {styles.cardItemSize}
         onPress={() => (/*handleDelete(item) //Função deletava os objetos salvos*/()=>{console.log('Clicado')})}>
 
         <View style={styles.cardItemContent}>
@@ -77,17 +77,19 @@ export default function ProfileScreen({ navigation }) {
 
   
 const styles= StyleSheet.create({
-  container: {
-    width: '100%',
-    maxWidth: '100%',
-    height: '100%',
-    backgroundColor: '#15B6D6',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    bottom: '0',
-    boxSizing: 'border-box',
+container: {
+  
+  width: '100%',
+  maxWidth: '100%',
+  height: '100%',
+  backgroundColor: '#15B6D6',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  bottom: 0,
+  boxSizing: 'border-box',
 },
+
 title: {
   color: '#fff',
   fontSize: 20,
@@ -96,23 +98,42 @@ title: {
 },
 
 cardItem:{
-  width: '95%', 
 
-  borderRadius: '10px',
+  width: '95%', 
+  height: 200,
+  borderRadius: 10,
   borderColor: '#15B6D6',
   borderWidth: 1,
-  padding: '10px',
-  marginTop: '10px',
-  marginBottom: '10px',
-  margin: 'auto',
+  padding: 10,
+  marginTop: 10,
+  marginBottom: 10,
+  //margin: 'auto',
+  alignSelf: 'center',
   boxSizing: 'border-box',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 },
 
 cardItemContent:{
+
   display: 'flex',
   flexDirection: 'row',
-  padding: '10px',  
+  height: '100%',
+
   
+ /* backgroundColor: 'red',
+  display: 'flex',
+  flexDirection: 'row',
+  padding: 5, 
+  maxWidth: '90%',
+  height: '100%',
+  maxHeight: '100%', 
+
+  alignSelf: 'center',
+  justifyContent: 'center',
+  boxSizing: 'border-box',
+  */
 },
 
 List:{
@@ -121,38 +142,42 @@ List:{
     maxWidth: '100%',
     
 },
+
 input: {
   marginTop: 10,
-  height: 60,
-  backgroundColor: '#fff',
+  height: 40,
   borderRadius: 10,
   paddingHorizontal: 24,
   fontSize: 16,
-  alignItems: 'stretch'
+  //alignItems: 'stretch'
 },
 
 Img:{
-  borderRadius: '10px',
+ 
   borderColor: '#15B6D6',
   borderWidth: 1,
-  width: '300px',
-
-
+  width: '100%',
   maxWidth: "30%",
-  
   boxSizing: 'border-box',
 },
 
 Imagem:{
   height: '100%',
   width: '100%',
+  borderRadius: 10,
 },
 
 Conteudo:{
   height: '100%',
-  flex:1,
-  padding: '10px',
+  padding: 10,
 },
+
+cardItemSize:{
+  width: '100%',
+  height: '100%',
+
+},
+
 button: {
   marginTop: 10,
   height: 60,
