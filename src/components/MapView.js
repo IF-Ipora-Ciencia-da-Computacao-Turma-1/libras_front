@@ -18,6 +18,7 @@ const cidades = {
   },
 }
 
+
 export default function MapHomeComponent({navigation}){
     return(
         <SafeAreaView style = {styles.SafeAreaView}>
@@ -37,6 +38,7 @@ export default function MapHomeComponent({navigation}){
             const cidade = cidades[cidadeId];
             return (
               <Marker
+                
                 key={cidadeId}
                 coordinate={{
                   latitude: cidade.latitude,
@@ -44,7 +46,9 @@ export default function MapHomeComponent({navigation}){
                 }}
                 title={cidade.title}
                 description={cidade.description}
-                onPress={() => navigation.navigate('VisualizarPin',{ cidade })}
+                //onPress={() => navigation.navigate('VisualizarPin',{ cidade })}
+                icon={require('../imgs/Marker.png')}
+                
               />
             );
           })}
