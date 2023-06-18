@@ -8,13 +8,13 @@ const cidades = {
     latitude: -16.6798608,
     longitude: -49.3774167,
     title: 'Goiânia',
-    description: 'Descrição da Cidade 1',
+    description: 'Capital do estado de Goiás.',
   },
   cidade2: {
     latitude: -16.4340564,
     longitude: -51.147912,
     title: 'Iporá',
-    description: 'Descrição da Cidade 2',
+    description: 'Cidade do estado de Goiás',
   },
 }
 
