@@ -48,6 +48,7 @@ export default function MapHomeComponent({navigation}){
                 description={cidade.description}
                 //onPress={() => navigation.navigate('VisualizarPin',{ cidade })}
                 icon={require('../imgs/Marker.png')}
+
                 onCalloutPress={() => navigation.navigate('VisualizarPin',{ cidade })}
                
               >
@@ -57,6 +58,7 @@ export default function MapHomeComponent({navigation}){
                </MapCallout>
 
               </Marker>
+
             );
           })}
         </MapView>
