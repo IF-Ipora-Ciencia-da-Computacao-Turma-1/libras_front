@@ -49,6 +49,8 @@ export default function MapHomeComponent({navigation}){
                 //onPress={() => navigation.navigate('VisualizarPin',{ cidade })}
                 icon={require('../imgs/Marker.png')}
                 
+
+
               />
             );
           })}

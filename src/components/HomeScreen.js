@@ -93,6 +93,7 @@ export default function HomeScreen({ navigation }) {
                   />
                   )}
               />
+              
             </View>
             <TouchableOpacity  style={styles.button}
               onPress={handleSubmit(handleCreate)}
