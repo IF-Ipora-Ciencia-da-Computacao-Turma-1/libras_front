@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
- baseURL: 'https://url-api/public/api/',
+ baseURL:  'https://apiif.murillocastro.com.br/public/api/',
 
 });
 

@@ -2,76 +2,23 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity, Alert, Button,Image } from 'react-native';
 import { React, useEffect, useState } from 'react';
 import api from '../api/api';
+import { useRoute } from '@react-navigation/native';
 
-export default function ProfileScreen({ navigation }) {
+export default function VisualizarPin() {
 
-  const [data, setData] = useState([])
+    const route = useRoute();
+    const { cidade } = route.params
 
-  const handleDelete = async(data) => {
-    const result = await api.post('cidade/delete', data);  
-
-  if(result.data == "Cidade deletada com Sucesso") {
-     Alert.alert('Deletado','Deletado com sucesso');
-    const result = await api.get('cidade/index');
-    setData(result.data);
-  } else {
-    Alert.alert('Error','Ocorreu um problema, tente novamente')
-  }
-}
-
-  useEffect(() => {
-    const response = async () => {
-      const result = await api.get('cidade/index');
-      setData(result.data)
-    }
-    response()
-  }, [])
-
-  const Item = ({item}) => (
-    <View style = {styles.cardItem}>
-      <TouchableOpacity style = {styles.cardItemSize}
-        onPress={() => (/*handleDelete(item) //Função deletava os objetos salvos*/()=>{console.log('Clicado')})}>
-        
-        <View style={styles.cardItemContent}>
-
-          <View  style={styles.Img}>
-              <Image 
-              style = {styles.Imagem}
-                source={{uri:`${item.sinal}`}}/>
-             
-          </View>
-            
-          <View style={styles.Conteudo} >
-            <Text style={styles.input}>Cidade: {item.nome}</Text>
-            <Text style={styles.input}>Estado: {item.cidade}</Text>
-          </View>
-          
-        </View>
-    
-      </TouchableOpacity>
-      
-    </View>
-  );
 
   return (
     <View style={styles.container}>
-     
-             
-      <SafeAreaView style={styles.container}>
-      <Button        
-             title="Home"/>
+    
+      <Text>{cidade.title}</Text>
+      <Text>{cidade.description}</Text>
 
-        <FlatList
-          style={styles.List}
-          data={data}
-          renderItem={({item}) => <Item item={item} />}
-          keyExtractor={item => item.id}
-        />
-      </SafeAreaView>
-      <StatusBar style="light" />
     </View>
     );
-  }
+}
 
   
 const styles= StyleSheet.create({
