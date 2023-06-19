@@ -2,26 +2,28 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity, Alert, Button,Image } from 'react-native';
 import { React, useEffect, useState } from 'react';
 import api from '../api/api';
+import axios from 'axios';
 import { cssProfileScreen } from '../css/cssProfileScreen';
 
 export default function ProfileScreen({ navigation }) {
 
   const [data, setData] = useState([])
 
-  const handleDelete = async(data) => {
-    const result = await api.post('cidade/delete', data);  
+//   const handleDelete = async(data) => {
+//     const result = await api.post('cidade/delete', data);  
 
-  if(result.data == "Cidade deletada com Sucesso") {
-     Alert.alert('Deletado','Deletado com sucesso');
-    const result = await api.get('cidade/index');
-    setData(result.data);
-  } else {
-    Alert.alert('Error','Ocorreu um problema, tente novamente')
-  }
-}
+//   if(result.data == "Cidade deletada com Sucesso") {
+//      Alert.alert('Deletado','Deletado com sucesso');
+//     const result = await api.get('cidade/index');
+//     setData(result.data);
+//   } else {
+//     Alert.alert('Error','Ocorreu um problema, tente novamente')
+//   }
+// }
 
   useEffect(() => {
     const response = async () => {
+      // const result = await axios.get('https://apiif.murillocastro.com.br/public/api/cidade/index');
       const result = await api.get('cidade/index');
       setData(result.data)
     }
@@ -44,7 +46,7 @@ export default function ProfileScreen({ navigation }) {
             
           <View style={cssProfileScreen.Conteudo} >
             <Text style={cssProfileScreen.input}>Cidade: {item.nome}</Text>
-            <Text style={cssProfileScreen.input}>Estado: {item.cidade}</Text>
+            <Text style={cssProfileScreen.input}>Estado: {item.estado}</Text>
           </View>
           
         </View>

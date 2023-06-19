@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View} from 'react-native';
+
 import * as Font from 'expo-font';
 
 
@@ -6,7 +7,7 @@ const cssHome = StyleSheet.create({
     titulo: {   
         color: '#fff',
         fontSize: 60,
-        fontFamily: 'roboto',
+        
 
     },
     descricao:{
@@ -14,7 +15,7 @@ const cssHome = StyleSheet.create({
         textAlign: 'justify',
         maxWidth: '70%',
         fontSize: 20,
-        fontFamily: 'roboto',
+       
 
     },
     botao:{
@@ -29,7 +30,7 @@ const cssHome = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         textAlign: 'center',
-        fontFamily: 'roboto',
+        
         
     },
     container:{

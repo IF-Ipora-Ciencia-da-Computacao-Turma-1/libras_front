@@ -5,6 +5,8 @@ import { css } from '../css/homeCss'
 import { cssHome } from '../css/cssHome';
 
 export default function Home({ navigation }) {
+
+    
     return (
         <View style={cssHome.container2}>
             <View style={cssHome.container}>
@@ -25,7 +27,7 @@ export default function Home({ navigation }) {
                 </Text>
                 <View style={cssHome.Navegador}>
                     <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("HomeScreen")}>
-                        <Text style={cssHome.textoBotao}>HomeScreen</Text>
+                        <Text style={cssHome.textoBotao}>Cadastrar-Cidade</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("MapView")}>
                         <Text style={cssHome.textoBotao}>Mapa</Text>

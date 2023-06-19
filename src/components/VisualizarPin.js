@@ -10,11 +10,25 @@ export default function VisualizarPin() {
     const { cidade } = route.params
 
 
+  // const getCidadeSinal = (nomeCidade) => {
+  //     const cidades = citiesData.find((item) => item.nome === nomeCidade);
+    
+  //     if (cidade) {
+  //       return cidades.sinal;
+  //     } else {
+  //       return null;
+  //     }
+  //   };
+
+
   return (
     <View style={styles.container}>
-    
-      <Text>{cidade.title}</Text>
-      <Text>{cidade.description}</Text>
+     <Image
+      source={{ uri: cidade.sinal }}
+      style={{ width: 200, height: 200 }}
+    />
+      <Text>{cidade.nome}</Text>
+      <Text>{cidade.estado}</Text>
 
     </View>
     );

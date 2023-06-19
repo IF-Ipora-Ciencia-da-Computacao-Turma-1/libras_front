@@ -1,9 +1,35 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
+import axios from 'axios';
 import { SafeAreaView, StyleSheet, View,  } from "react-native";
 import MapView, { Marker, MapCallout } from "react-native-maps";
 
-const cidades = {
+
+// const [cidades, setCidades] = useState([]);
+
+// async function getAllCities(){
+//   const response = await axios.get('http://apiif.murillocastro.com.br/public/api/cidade/index');
+//       console.log(response.data);
+//       setCidades(response.data);
+// }
+// const YourScreen = () => {
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
+
+//   async function fetchData() {
+//     try {
+//       const response = await axios.get('https://exemplo.com/api/cidade/index');
+//       const result = response.data;
+//       console.log(result); // Faça algo com o JSON recebido
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+// }
+
+const cities = {
   cidade1: {
     latitude: -16.6798608,
     longitude: -49.3774167,
@@ -20,9 +46,28 @@ const cidades = {
 
 
 export default function MapHomeComponent({navigation}){
+    // getAllCities();
+    // YourScreen();
+    const [cidades, setCidades] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    try {
+      const response = await axios.get('https://apiif.murillocastro.com.br/public/api/cidade/index');
+      const data = response.data;
+      console.log(data);
+      setCidades(data); // Armazene os dados da API no estado 'cidades'
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
     return(
         <SafeAreaView style = {styles.SafeAreaView}>
-            <StatusBar backgroundColor="red"></StatusBar>
+            <StatusBar backgroundColor="white"></StatusBar>
             <View style={styles.container}>
             <MapView
           style={styles.map}
@@ -38,14 +83,13 @@ export default function MapHomeComponent({navigation}){
             const cidade = cidades[cidadeId];
             return (
               <Marker
-                
                 key={cidadeId}
                 coordinate={{
                   latitude: cidade.latitude,
                   longitude: cidade.longitude,
                 }}
-                title={cidade.title}
-                description={cidade.description}
+                title={cidade.nome}
+                description={cidade.estado}
                 //onPress={() => navigation.navigate('VisualizarPin',{ cidade })}
                 icon={require('../imgs/Marker.png')}
 
