@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
-import { SafeAreaView, StyleSheet, View,  } from "react-native";
+import { SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import MapView, { Marker, MapCallout } from "react-native-maps";
 
 
@@ -70,41 +70,47 @@ export default function MapHomeComponent({navigation}){
             <StatusBar backgroundColor="white"></StatusBar>
             <View style={styles.container}>
             <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: -16.2980797,
-            longitude: -50.1164483,
-            latitudeDelta: 5,
-            longitudeDelta: 5,
-          }}
-        >
-          {/* Renderize os pins de localização */}
-          {Object.keys(cidades).map((cidadeId) => {
-            const cidade = cidades[cidadeId];
-            return (
-              <Marker
-                key={cidadeId}
-                coordinate={{
-                  latitude: cidade.latitude,
-                  longitude: cidade.longitude,
+                style={styles.map}
+                initialRegion={{
+                  latitude: -16.2980797,
+                  longitude: -50.1164483,
+                  latitudeDelta: 5,
+                  longitudeDelta: 5,
                 }}
-                title={cidade.nome}
-                description={cidade.estado}
-                //onPress={() => navigation.navigate('VisualizarPin',{ cidade })}
-                icon={require('../imgs/Marker.png')}
+            >
+              
+              {/* Renderize os pins de localização */}
+              {Object.keys(cidades).map((cidadeId) => {
+                const cidade = cidades[cidadeId];
+                return (
+                  <Marker
+                    key={cidadeId}
+                    coordinate={{
+                      latitude: cidade.latitude,
+                      longitude: cidade.longitude,
+                    }}
+                    title={cidade.nome}
+                    description={cidade.estado}
+                    //onPress={() => navigation.navigate('VisualizarPin',{ cidade })}
+                    icon={require('../imgs/Marker.png')}
 
-                onCalloutPress={() => navigation.navigate('VisualizarPin',{ cidade })}
-               
-              >
-               
-               <MapCallout>
+                    onCalloutPress={() => navigation.navigate('VisualizarPin',{ cidade })}
+                  
+                  >
+                  
+                  <MapCallout 
+                    style={styles.modalOverlay}>
+                      <View style = {styles.modalOverlayContent}>
+                        <Text style = {styles.h2}>Ver sinal de</Text>
+                        <Text style = {styles.h1}>{cidade.nome} - {cidade.estado}</Text>
+                      </View>
+                  </MapCallout>
 
-               </MapCallout>
+                  </Marker>
 
-              </Marker>
+                );
+              })}
 
-            );
-          })}
         </MapView>
 
          {/* Componente de informações que aparece ao clicar no marcador */}
@@ -112,6 +118,9 @@ export default function MapHomeComponent({navigation}){
                 
             </View>
 
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <Text style = {styles.textButton}>Voltar</Text>
+          </TouchableOpacity>  
         </SafeAreaView>
 
         
@@ -121,13 +130,33 @@ export default function MapHomeComponent({navigation}){
 
 
 const styles = StyleSheet.create({  
+    
+  
     modalOverlay:{
-      width: 300,
-      height: 300,
-      backgroundColor: '#FF0000',
-
+      color:  'green',
+      
     },
 
+    modalOverlayContent:{
+      
+     
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: '100%',
+      height: '100%',
+      borderRadius: 10,
+      
+    },
+
+    h1:{
+      display: "flex",
+      fontSize: 15,
+      fontWeight: 900,
+      paddingTop: 5,
+      
+
+    },
 
     SafeAreaView:{
         width: '100%',
@@ -149,4 +178,19 @@ const styles = StyleSheet.create({
       width: '100%',
       height: '100%',
     },
+
+    
+textButton:{
+ 
+  paddingVertical: 20,
+  paddingHorizontal: 40,
+  backgroundColor: '#FFC831',
+  color: '#FFFFFF',
+  fontWeight: 'bold',
+  fontSize: 20,
+  borderRadius: 10,
+  position: 'absolute',
+  bottom: 15,
+  alignSelf: 'center',
+},
   });

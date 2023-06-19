@@ -4,7 +4,7 @@ import { React, useEffect, useState } from 'react';
 import api from '../api/api';
 import { useRoute } from '@react-navigation/native';
 
-export default function VisualizarPin() {
+export default function VisualizarPin({navigation}) {
 
     const route = useRoute();
     const { cidade } = route.params
@@ -23,12 +23,21 @@ export default function VisualizarPin() {
 
   return (
     <View style={styles.container}>
-     <Image
-      source={{ uri: cidade.sinal }}
-      style={{ width: 200, height: 200 }}
-    />
-      <Text>{cidade.nome}</Text>
-      <Text>{cidade.estado}</Text>
+
+      <View style={styles.Imagem}>
+        <Image
+          source={{ uri: cidade.sinal }}
+          style={styles.img}
+        />
+      </View>
+      <View style = {styles.texts}>
+        <Text style = {styles.title}>cidade: {cidade.nome}</Text>
+        <Text style = {styles.title}>Estado: {cidade.estado}</Text>
+      </View>
+
+      <TouchableOpacity onPress={() => navigation.navigate('MapView')}>
+        <Text style = {styles.textButton}>Voltar</Text>
+      </TouchableOpacity>
 
     </View>
     );
@@ -39,119 +48,51 @@ const styles= StyleSheet.create({
 container: {
   
   width: '100%',
-  maxWidth: '100%',
   height: '100%',
   backgroundColor: '#15B6D6',
   display: 'flex',
+  flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
-  bottom: 0,
-  boxSizing: 'border-box',
+
 },
 
 title: {
   color: '#fff',
   fontSize: 20,
   fontWeight: 'bold',
-  marginTop: 50,
-},
-
-cardItem:{
-
-  width: '95%', 
-  height: 200,
-  borderRadius: 10,
-  borderColor: '#15B6D6',
-  borderWidth: 1,
-  padding: 10,
   marginTop: 10,
-  marginBottom: 10,
-  //margin: 'auto',
-  alignSelf: 'center',
-  boxSizing: 'border-box',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-},
-
-cardItemContent:{
-
-  display: 'flex',
-  flexDirection: 'row',
-  height: '100%',
-
-  
- /* backgroundColor: 'red',
-  display: 'flex',
-  flexDirection: 'row',
-  padding: 5, 
-  maxWidth: '90%',
-  height: '100%',
-  maxHeight: '100%', 
-
-  alignSelf: 'center',
-  justifyContent: 'center',
-  boxSizing: 'border-box',
-  */
-},
-
-List:{
-    backgroundColor: '#fff',
-    display: 'flex',
-    maxWidth: '100%',
-    
-},
-
-input: {
-  marginTop: 10,
-  height: 40,
-  borderRadius: 10,
-  paddingHorizontal: 24,
-  fontSize: 16,
-  //alignItems: 'stretch'
-},
-
-Img:{
- 
-  borderColor: '#15B6D6',
-  borderWidth: 1,
-  width: '100%',
-  maxWidth: "30%",
-  boxSizing: 'border-box',
+  textAlign: 'center',
 },
 
 Imagem:{
-  height: '100%',
-  width: '100%',
-  borderRadius: 10,
-},
-
-Conteudo:{
-  height: '100%',
-  padding: 10,
-},
-
-cardItemSize:{
-  width: '100%',
-  height: '100%',
-
-},
-
-button: {
-  marginTop: 10,
-  height: 60,
-  backgroundColor: 'blue',
-  borderRadius: 10,
-  paddingHorizontal: 24,
-  fontSize: 16,
+  height: '50%',
+  width: '90%',
+  display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  elevation: 20,
-  shadowOpacity: 20,
-  shadowColor: '#ccc',
+  boxSizing: 'border-box',
+  
 },
-buttonText: {
-  color: '#fff',
+
+img:{
+  
+  width: '95%',
+  height: '95%',
+  
+},
+
+textButton:{
+ 
+  paddingVertical: 20,
+  paddingHorizontal: 40,
+  backgroundColor: '#FFC831',
+  color: '#FFFFFF',
   fontWeight: 'bold',
-}
+  fontSize: 20,
+  borderRadius: 10,
+  marginTop: 60,
+},
+
+
 });

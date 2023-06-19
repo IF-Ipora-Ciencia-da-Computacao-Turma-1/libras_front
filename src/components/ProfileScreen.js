@@ -62,7 +62,8 @@ export default function ProfileScreen({ navigation }) {
              
       <SafeAreaView style={cssProfileScreen.container}>
       <Button        
-             title="Home"/>
+             title="Voltar"
+             onPress={() => navigation.navigate('HomeScreen')}/>
 
         <FlatList
           style={cssProfileScreen.List}
