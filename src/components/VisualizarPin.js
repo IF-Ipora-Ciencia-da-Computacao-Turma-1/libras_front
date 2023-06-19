@@ -31,7 +31,7 @@ export default function VisualizarPin({navigation}) {
         />
       </View>
       <View style = {styles.texts}>
-        <Text style = {styles.title}>cidade: {cidade.nome}</Text>
+        <Text style = {styles.title}>Cidade: {cidade.nome}</Text>
         <Text style = {styles.title}>Estado: {cidade.estado}</Text>
       </View>
 
@@ -66,6 +66,7 @@ title: {
 },
 
 Imagem:{
+  borderRadius: 50,
   height: '50%',
   width: '90%',
   display: 'flex',
@@ -76,10 +77,14 @@ Imagem:{
 },
 
 img:{
+  // borderRadius: 50,
+  // width: '95%',
+  // height: '95%',
   
-  width: '95%',
-  height: '95%',
-  
+        width: '100%',
+        height: '100%',
+        borderRadius: 200,
+
 },
 
 textButton:{
@@ -90,7 +95,7 @@ textButton:{
   color: '#FFFFFF',
   fontWeight: 'bold',
   fontSize: 20,
-  borderRadius: 10,
+  borderRadius: 54,
   marginTop: 60,
 },
 

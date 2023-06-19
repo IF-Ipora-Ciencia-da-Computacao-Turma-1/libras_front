@@ -4,8 +4,6 @@ import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
 import { SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import MapView, { Marker, MapCallout } from "react-native-maps";
-
-
 // const [cidades, setCidades] = useState([]);
 
 // async function getAllCities(){
@@ -48,6 +46,7 @@ const cities = {
 export default function MapHomeComponent({navigation}){
     // getAllCities();
     // YourScreen();
+
     const [cidades, setCidades] = useState([]);
 
   useEffect(() => {
@@ -117,10 +116,11 @@ export default function MapHomeComponent({navigation}){
       
                 
             </View>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-            <Text style = {styles.textButton}>Voltar</Text>
-          </TouchableOpacity>  
+            <View>
+              <TouchableOpacity style = {styles.textButton2} onPress={() => navigation.navigate('Home')}>
+                  <Text style = {styles.textButton}>Voltar</Text>
+              </TouchableOpacity>
+            </View> 
         </SafeAreaView>
 
         
@@ -180,10 +180,9 @@ const styles = StyleSheet.create({
     },
 
     
-textButton:{
- 
-  paddingVertical: 20,
-  paddingHorizontal: 40,
+textButton:{ 
+  paddingVertical: 0,
+  paddingHorizontal: 0,
   backgroundColor: '#FFC831',
   color: '#FFFFFF',
   fontWeight: 'bold',
@@ -193,4 +192,19 @@ textButton:{
   bottom: 15,
   alignSelf: 'center',
 },
+
+textButton2:{
+  paddingVertical: 30,
+  paddingHorizontal: 60,
+  backgroundColor: '#FFC831',
+  color: '#FFFFFF',
+  fontWeight: 'bold',
+  fontSize: 20,
+  borderRadius: 54,
+  position: 'absolute',
+  bottom: 15,
+  alignSelf: 'center',
+  zIndex: 2,
+},
+
   });

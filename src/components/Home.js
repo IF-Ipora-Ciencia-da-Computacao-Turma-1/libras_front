@@ -10,15 +10,6 @@ export default function Home({ navigation }) {
     return (
         <View style={cssHome.container2}>
             <View style={cssHome.container}>
-                {/*<Text style = {{backgroundColor: '#fff'}}>
-                Home eeee
-            </Text>
-
-            <Button
-                onPress={() => Alert.alert('Button with adjusted color pressed Pagina 2')}
-                title="Learn More"
-                color="#841584"
-            /> */}
                 <Text style={cssHome.titulo}>
                 GeoLibras
                 </Text>
