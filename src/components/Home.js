@@ -14,11 +14,11 @@ export default function Home({ navigation }) {
                 GeoLibras
                 </Text>
                 <Text style={cssHome.descricao}>
-                Um aplicativo para encontrar nomes de cidades na Lingua Brasileira de Sinais (LIBRAS)
+                Um aplicativo para encontrar nomes de cidades na Língua Brasileira de Sinais (LIBRAS)
                 </Text>
                 <View style={cssHome.Navegador}>
-                    <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("HomeScreen")}>
-                        <Text style={cssHome.textoBotao}>Cadastrar-Cidade</Text>
+                    <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("Profile")}>
+                        <Text style={cssHome.textoBotao}>Visualizar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("MapView")}>
                         <Text style={cssHome.textoBotao}>Mapa</Text>
