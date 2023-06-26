@@ -17,12 +17,14 @@ export default function Home({ navigation }) {
                 Um aplicativo para encontrar nomes de cidades na Língua Brasileira de Sinais (LIBRAS)
                 </Text>
                 <View style={cssHome.Navegador}>
-                    <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("Profile")}>
-                        <Text style={cssHome.textoBotao}>Visualizar</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("MapView")}>
+                <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("MapView")}>
                         <Text style={cssHome.textoBotao}>Mapa</Text>
                     </TouchableOpacity>
+                    
+                    <TouchableOpacity style={cssHome.botao} onPress={() => navigation.navigate("Profile")}>
+                        <Text style={cssHome.textoBotao}>Visualizar cidades</Text>
+                    </TouchableOpacity>
+                    
                 </View>
 
                 <Image source={require('../imgs/logoIF.png')}
