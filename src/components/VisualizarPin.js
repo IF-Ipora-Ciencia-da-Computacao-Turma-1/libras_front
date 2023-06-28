@@ -1,25 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity, Alert, Button,Image } from 'react-native';
-import { React, useEffect, useState } from 'react';
-import api from '../api/api';
+
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { React } from 'react';
+
 import { useRoute } from '@react-navigation/native';
 
 export default function VisualizarPin({navigation}) {
 
     const route = useRoute();
     const { cidade } = route.params
-
-
-  // const getCidadeSinal = (nomeCidade) => {
-  //     const cidades = citiesData.find((item) => item.nome === nomeCidade);
-    
-  //     if (cidade) {
-  //       return cidades.sinal;
-  //     } else {
-  //       return null;
-  //     }
-  //   };
-
 
   return (
     <View style={styles.container}>
