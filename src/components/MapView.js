@@ -4,50 +4,11 @@ import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
 import { SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import MapView, { Marker, MapCallout } from "react-native-maps";
-// const [cidades, setCidades] = useState([]);
-
-// async function getAllCities(){
-//   const response = await axios.get('http://apiif.murillocastro.com.br/public/api/cidade/index');
-//       console.log(response.data);
-//       setCidades(response.data);
-// }
-// const YourScreen = () => {
-//   useEffect(() => {
-//     fetchData();
-//   }, []);
-
-//   async function fetchData() {
-//     try {
-//       const response = await axios.get('https://exemplo.com/api/cidade/index');
-//       const result = response.data;
-//       console.log(result); // Faça algo com o JSON recebido
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// }
-
-const cities = {
-  cidade1: {
-    latitude: -16.6798608,
-    longitude: -49.3774167,
-    title: 'Goiânia',
-    description: 'Capital do estado de Goiás.',
-  },
-  cidade2: {
-    latitude: -16.4340564,
-    longitude: -51.147912,
-    title: 'Iporá',
-    description: 'Cidade do estado de Goiás',
-  },
-}
 
 
 export default function MapHomeComponent({navigation}){
-    // getAllCities();
-    // YourScreen();
 
-    const [cidades, setCidades] = useState([]);
+  const [cidades, setCidades] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -90,10 +51,10 @@ export default function MapHomeComponent({navigation}){
                     }}
                     title={cidade.nome}
                     description={cidade.estado}
-                    //onPress={() => navigation.navigate('VisualizarPin',{ cidade })}
                     icon={require('../imgs/Marker.png')}
 
                     onCalloutPress={() => navigation.navigate('VisualizarPin',{ cidade })}
+                    //onCalloutPress={() => console.log( cidade )}
                   
                   >
                   

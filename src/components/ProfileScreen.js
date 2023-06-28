@@ -1,29 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity, Alert, Button,Image } from 'react-native';
+import {Text, View, FlatList, SafeAreaView, TouchableOpacity, Button,Image } from 'react-native';
 import { React, useEffect, useState } from 'react';
 import api from '../api/api';
-import axios from 'axios';
+
+
 import { cssProfileScreen } from '../css/cssProfileScreen';
+
 
 export default function ProfileScreen({ navigation }) {
 
   const [data, setData] = useState([])
 
-//   const handleDelete = async(data) => {
-//     const result = await api.post('cidade/delete', data);  
-
-//   if(result.data == "Cidade deletada com Sucesso") {
-//      Alert.alert('Deletado','Deletado com sucesso');
-//     const result = await api.get('cidade/index');
-//     setData(result.data);
-//   } else {
-//     Alert.alert('Error','Ocorreu um problema, tente novamente')
-//   }
-// }
-
   useEffect(() => {
     const response = async () => {
-      // const result = await axios.get('https://apiif.murillocastro.com.br/public/api/cidade/index');
       const result = await api.get('cidade/index');
       setData(result.data)
     }
@@ -33,7 +22,10 @@ export default function ProfileScreen({ navigation }) {
   const Item = ({item}) => (
     <View style = {cssProfileScreen.cardItem}>
       <TouchableOpacity style = {cssProfileScreen.cardItemSize}
-        onPress={() => (/*handleDelete(item) //Função deletava os objetos salvos*/()=>{console.log('Clicado')})}>
+        //onPress={() => navigation.navigate('VisualizarPin', {item: item})}
+        onPress={() => console.log( item )}
+
+        >
         
         <View style={cssProfileScreen.cardItemContent}>
 
@@ -61,16 +53,16 @@ export default function ProfileScreen({ navigation }) {
      
              
       <SafeAreaView style={cssProfileScreen.container}>
-      <Button        
-             title="Voltar"
-             onPress={() => navigation.navigate('Home')}/>
-
+      
         <FlatList
           style={cssProfileScreen.List}
           data={data}
           renderItem={({item}) => <Item item={item} />}
           keyExtractor={item => item.id}
         />
+        <Button        
+             title="Voltar"
+             onPress={() => navigation.navigate('Home')}/>
       </SafeAreaView>
       <StatusBar style="light" />
     </View>

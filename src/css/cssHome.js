@@ -1,8 +1,5 @@
 import { StyleSheet, Text, View} from 'react-native';
 
-import * as Font from 'expo-font';
-
-
 const cssHome = StyleSheet.create({
     titulo: {   
         color: '#fff',

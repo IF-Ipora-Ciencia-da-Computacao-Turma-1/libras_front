@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, Alert, Image, TouchableOpacity } from 'react-native';
 
-import { css } from '../css/homeCss'
+
 import { cssHome } from '../css/cssHome';
 
 export default function Home({ navigation }) {
